@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace AdventOfCode.Test
@@ -9,34 +9,33 @@ namespace AdventOfCode.Test
     public class Day01
     {
         private IEnumerable<char> input;
+        private Building building;
 
         [TestInitialize]
         public void Initialize()
         {
             using (var file = new StreamReader("Input01.txt"))
                 input = file.ReadToEnd().ToCharArray();
+
+            building = new Building();
         }
 
         [TestMethod]
         public void Part1()
         {
-            var building = new Building();
-
             Assert.AreEqual(building.Floor("((".ToCharArray()), 2);
             Assert.AreEqual(building.Floor("(())".ToCharArray()), 0);
             Assert.AreEqual(building.Floor(")(())".ToCharArray()), -1);
 
-            System.Diagnostics.Debug.WriteLine("Floor {0}", building.Floor(input));
+            Trace.WriteLine(string.Format("Floor {0}", building.Floor(input)));
         }
 
         [TestMethod]
         public void Part2()
         {
-            var building = new Building();
-
             Assert.AreEqual(building.Basement("(()))((".ToCharArray()), 4);
 
-            System.Diagnostics.Debug.WriteLine("Basement {0}", building.Basement(input));
+            Trace.WriteLine(string.Format("Basement {0}", building.Basement(input)));
         }
     }
 }
