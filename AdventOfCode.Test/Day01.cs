@@ -23,9 +23,9 @@ namespace AdventOfCode.Test
         [TestMethod]
         public void Part1()
         {
-            Assert.AreEqual(building.Floor("(("), 2);
-            Assert.AreEqual(building.Floor("(())"), 0);
-            Assert.AreEqual(building.Floor(")(())"), -1);
+            Assert.AreEqual(2,building.Floor("(("));
+            Assert.AreEqual(0,building.Floor("(())"));
+            Assert.AreEqual(-1,building.Floor(")(())"));
 
             Trace.WriteLine(string.Format("Floor {0}", building.Floor(input)));
         }
@@ -33,7 +33,7 @@ namespace AdventOfCode.Test
         [TestMethod]
         public void Part2()
         {
-            Assert.AreEqual(building.Basement("(()))(("), 4);
+            Assert.AreEqual(4,building.Basement("(()))(("));
 
             Trace.WriteLine(string.Format("Basement {0}", building.Basement(input)));
         }

@@ -28,9 +28,9 @@ namespace AdventOfCode.Test
         [TestMethod]
         public void Part1()
         {
-            Assert.AreEqual(houses.Visited(">"), 2);
-            Assert.AreEqual(houses.Visited("^>v<"), 4);
-            Assert.AreEqual(houses.Visited("^v^v^v^v^v"), 2);
+            Assert.AreEqual(2, houses.Visited(">"));
+            Assert.AreEqual(4, houses.Visited("^>v<"));
+            Assert.AreEqual(2, houses.Visited("^v^v^v^v^v"));
 
             Trace.WriteLine(string.Format("Houses visited by Santa {0}", houses.Visited(input)));
         }

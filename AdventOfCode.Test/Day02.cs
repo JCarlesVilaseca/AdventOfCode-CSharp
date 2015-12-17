@@ -34,7 +34,7 @@ namespace AdventOfCode.Test
         [TestMethod]
         public void Part1()
         {
-            Assert.AreEqual(wrapper.PaperRequired(new PaperWrapper.Box { Length = 2, Width = 3, Height = 4 }), 58);
+            Assert.AreEqual(58, wrapper.PaperRequired(new PaperWrapper.Box { Length = 2, Width = 3, Height = 4 }));
 
            Trace.WriteLine(string.Format("Paper required {0}", wrapper.PaperRequired(input)));
         }
@@ -42,7 +42,7 @@ namespace AdventOfCode.Test
         [TestMethod]
         public void Part2()
         {
-            Assert.AreEqual(wrapper.RibbonRequired(new PaperWrapper.Box { Length = 2, Width = 3, Height = 4 }), 34);
+            Assert.AreEqual(34, wrapper.RibbonRequired(new PaperWrapper.Box { Length = 2, Width = 3, Height = 4 }));
 
             Trace.WriteLine(string.Format("Ribbon required {0}",wrapper.RibbonRequired(input)));
         }
