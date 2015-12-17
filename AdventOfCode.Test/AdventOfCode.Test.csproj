@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Day04.cs" />
     <Compile Include="Day17.cs" />
     <Compile Include="Day03.cs" />
     <Compile Include="Day02.cs" />
