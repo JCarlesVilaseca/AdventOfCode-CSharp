@@ -30,29 +30,17 @@ namespace AdventOfCode.Test
         [TestMethod]
         public void Part1()
         {
-            Assert.AreEqual(4,filler.TotalCombinations(new List<int> { 20,15,10,5,5},25));
+            Assert.AreEqual(4, filler.TotalCombinationsCount(new List<int> { 20,15,10,5,5}, 25));
 
-            var comb = GetPermutations(new List<int> { 20, 15, 10, 5 });
-
-            foreach(var c in comb)
-            {
-                Trace.WriteLine(string.Join(",",c.Select((x) => x.ToString()).ToArray()));
-            }
-
-            //Trace.WriteLine(string.Format("Number of combinations {0}", filler.TotalCombinations(input,150)));
+            Trace.WriteLine(string.Format("Number of combinations {0}", filler.TotalCombinationsCount(input,150)));
         }
 
-        public static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> items)
+        [TestMethod]
+        public void Part2()
         {
-            if (items.Count() > 1)
-            {
-                return items.SelectMany(item => GetPermutations(items.Where(i => !i.Equals(item))),
-                                       (item, permutation) => new[] { item }.Concat(permutation));
-            }
-            else
-            {
-                return new[] { items };
-            }
+            Assert.AreEqual(3, filler.ShortestCombinationsCount(new List<int> { 20, 15, 10, 5, 5 }, 25));
+
+            Trace.WriteLine(string.Format("Number of short combinations {0}", filler.ShortestCombinationsCount(input, 150)));
         }
 
     }
