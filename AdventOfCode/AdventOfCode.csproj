@@ -43,6 +43,7 @@
     <Compile Include="Building.cs" />
     <Compile Include="CoinMiner.cs" />
     <Compile Include="ContainerFiller.cs" />
+    <Compile Include="GameOfLife.cs" />
     <Compile Include="Houses.cs" />
     <Compile Include="PaperWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
