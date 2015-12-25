@@ -11,20 +11,16 @@ namespace AdventOfCode.Test
     [TestClass]
     public class Day18
     {
-        private List<int> input = new List<int>();
+        private string input;
         private GameOfLife game;
 
         [TestInitialize]
         public void Initialize()
         {
-            /*
-            using (var file = new StreamReader("Input17.txt"))
+            using (var file = new StreamReader("Input18.txt"))
             {
-                string line;
-                while ((line = file.ReadLine()) != null)
-                    input.Add(int.Parse(line));
+                this.input = file.ReadToEnd();
             }
-            */
 
             game = new GameOfLife();
         }
@@ -32,17 +28,13 @@ namespace AdventOfCode.Test
         [TestMethod]
         public void Part1()
         {
-            var world = GameOfLife.World.Parse( 
-              @".#.#.#
-                ...##.
-                #....#
-                ..#...
-                #.#..#
-                ####..");
+            var world = GameOfLife.World.Parse(input);
 
-            var next = game.Next(world);
-            Trace.WriteLine(next.ToString());
-            Assert.AreEqual("", next);
+            var lightsOn = Enumerable.Range(0, 3)
+                            .Aggregate(world, (acum, index) => game.Next(acum))
+                            .Data.Count( x => x);
+
+            Trace.WriteLine(string.Format("Lights on: {0}", lightsOn));
         }
 
     }
